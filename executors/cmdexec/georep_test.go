@@ -4,26 +4,12 @@ import (
 	"testing"
 
 	"github.com/heketi/heketi/executors"
-	"github.com/heketi/heketi/pkg/utils"
 	"github.com/heketi/tests"
 )
 
 func TestGeoReplicationVolumeStatus(t *testing.T) {
-	f := NewFakeSsh()
-	defer tests.Patch(&sshNew,
-		func(logger *utils.Logger, user string, file string) (Ssher, error) {
-			return f, nil
-		}).Restore()
-
-	config := &SshConfig{
-		PrivateKeyFile: "xkeyfile",
-		User:           "xuser",
-		CLICommandConfig: CLICommandConfig{
-			Fstab: "/my/fstab",
-		},
-	}
-
-	s, err := NewSshExecutor(config)
+	f := NewCommandFaker()
+	s, err := NewFakeExecutor(f)
 	tests.Assert(t, err == nil)
 	tests.Assert(t, s != nil)
 
@@ -103,21 +89,8 @@ func TestGeoReplicationVolumeStatus(t *testing.T) {
 }
 
 func TestGeoReplicationStatus(t *testing.T) {
-	f := NewFakeSsh()
-	defer tests.Patch(&sshNew,
-		func(logger *utils.Logger, user string, file string) (Ssher, error) {
-			return f, nil
-		}).Restore()
-
-	config := &SshConfig{
-		PrivateKeyFile: "xkeyfile",
-		User:           "xuser",
-		CLICommandConfig: CLICommandConfig{
-			Fstab: "/my/fstab",
-		},
-	}
-
-	s, err := NewSshExecutor(config)
+	f := NewCommandFaker()
+	s, err := NewFakeExecutor(f)
 	tests.Assert(t, err == nil)
 	tests.Assert(t, s != nil)
 
@@ -224,21 +197,8 @@ func TestGeoReplicationStatus(t *testing.T) {
 }
 
 func TestGeoReplicationConfig(t *testing.T) {
-	f := NewFakeSsh()
-	defer tests.Patch(&sshNew,
-		func(logger *utils.Logger, user string, file string) (Ssher, error) {
-			return f, nil
-		}).Restore()
-
-	config := &SshConfig{
-		PrivateKeyFile: "xkeyfile",
-		User:           "xuser",
-		CLICommandConfig: CLICommandConfig{
-			Fstab: "/my/fstab",
-		},
-	}
-
-	s, err := NewSshExecutor(config)
+	f := NewCommandFaker()
+	s, err := NewFakeExecutor(f)
 	tests.Assert(t, err == nil)
 	tests.Assert(t, s != nil)
 
@@ -290,21 +250,8 @@ func TestGeoReplicationConfig(t *testing.T) {
 }
 
 func TestGeoReplicationCreate(t *testing.T) {
-	f := NewFakeSsh()
-	defer tests.Patch(&sshNew,
-		func(logger *utils.Logger, user string, file string) (Ssher, error) {
-			return f, nil
-		}).Restore()
-
-	config := &SshConfig{
-		PrivateKeyFile: "xkeyfile",
-		User:           "xuser",
-		CLICommandConfig: CLICommandConfig{
-			Fstab: "/my/fstab",
-		},
-	}
-
-	s, err := NewSshExecutor(config)
+	f := NewCommandFaker()
+	s, err := NewFakeExecutor(f)
 	tests.Assert(t, err == nil)
 	tests.Assert(t, s != nil)
 
