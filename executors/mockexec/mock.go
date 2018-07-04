@@ -15,27 +15,27 @@ import (
 
 type MockExecutor struct {
 	// These functions can be overwritten for testing
-	MockGlusterdCheck            func(host string) error
-	MockPeerProbe                func(exec_host, newnode string) error
-	MockPeerDetach               func(exec_host, newnode string) error
-	MockDeviceSetup              func(host, device, vgid string, destroy bool) (*executors.DeviceInfo, error)
-	MockDeviceTeardown           func(host, device, vgid string) error
-	MockBrickCreate              func(host string, brick *executors.BrickRequest) (*executors.BrickInfo, error)
-	MockBrickDestroy             func(host string, brick *executors.BrickRequest) (bool, error)
-	MockVolumeCreate             func(host string, volume *executors.VolumeRequest) (*executors.Volume, error)
-	MockVolumeExpand             func(host string, volume *executors.VolumeRequest) (*executors.Volume, error)
-	MockVolumeDestroy            func(host string, volume string) error
-	MockVolumeDestroyCheck       func(host, volume string) error
-	MockVolumeReplaceBrick       func(host string, volume string, oldBrick *executors.BrickInfo, newBrick *executors.BrickInfo) error
-	MockVolumeInfo               func(host string, volume string) (*executors.Volume, error)
-	MockVolumeClone              func(host string, volume *executors.VolumeCloneRequest) (*executors.Volume, error)
-	MockVolumeSnapshot           func(host string, volume *executors.VolumeSnapshotRequest) (*executors.Snapshot, error)
-	MockSnapshotCloneVolume      func(host string, volume *executors.SnapshotCloneRequest) (*executors.Volume, error)
-	MockSnapshotCloneBlockVolume func(host string, volume *executors.SnapshotCloneRequest) (*executors.BlockVolumeInfo, error)
-	MockSnapshotDestroy          func(host string, snapshot string) error
-	MockHealInfo                 func(host string, volume string) (*executors.HealInfo, error)
-	MockBlockVolumeCreate        func(host string, blockVolume *executors.BlockVolumeRequest) (*executors.BlockVolumeInfo, error)
-	MockBlockVolumeDestroy       func(host string, blockHostingVolumeName string, blockVolumeName string) error
+	MockGlusterdCheck              func(host string) error
+	MockPeerProbe                  func(exec_host, newnode string) error
+	MockPeerDetach                 func(exec_host, newnode string) error
+	MockDeviceSetup                func(host, device, vgid string, destroy bool) (*executors.DeviceInfo, error)
+	MockDeviceTeardown             func(host, device, vgid string) error
+	MockBrickCreate                func(host string, brick *executors.BrickRequest) (*executors.BrickInfo, error)
+	MockBrickDestroy               func(host string, brick *executors.BrickRequest) (bool, error)
+	MockVolumeCreate               func(host string, volume *executors.VolumeRequest) (*executors.Volume, error)
+	MockVolumeExpand               func(host string, volume *executors.VolumeRequest) (*executors.Volume, error)
+	MockVolumeDestroy              func(host string, volume string) error
+	MockVolumeDestroyCheck         func(host, volume string) error
+	MockVolumeReplaceBrick         func(host string, volume string, oldBrick *executors.BrickInfo, newBrick *executors.BrickInfo) error
+	MockVolumeInfo                 func(host string, volume string) (*executors.Volume, error)
+	MockVolumeClone                func(host string, volume *executors.VolumeCloneRequest) (*executors.Volume, error)
+	MockVolumeSnapshot             func(host string, volume *executors.VolumeSnapshotRequest) (*executors.Snapshot, error)
+	MockSnapshotCloneVolume        func(host string, volume *executors.SnapshotCloneRequest) (*executors.Volume, error)
+	MockSnapshotCloneBlockVolume   func(host string, volume *executors.SnapshotCloneRequest) (*executors.BlockVolumeInfo, error)
+	MockSnapshotDestroy            func(host string, snapshot string) error
+	MockHealInfo                   func(host string, volume string) (*executors.HealInfo, error)
+	MockBlockVolumeCreate          func(host string, blockVolume *executors.BlockVolumeRequest) (*executors.BlockVolumeInfo, error)
+	MockBlockVolumeDestroy         func(host string, blockHostingVolumeName string, blockVolumeName string) error
 	MockGeoReplicationCreate       func(host string, volume string, geoRep *executors.GeoReplicationRequest) error
 	MockGeoReplicationConfig       func(host string, volume string, geoRep *executors.GeoReplicationRequest) error
 	MockGeoReplicationAction       func(host string, volume string, action string, geoRep *executors.GeoReplicationRequest) error

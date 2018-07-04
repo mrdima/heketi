@@ -15,8 +15,7 @@ import (
 	"strconv"
 
 	"github.com/heketi/heketi/executors"
-        "github.com/lpabon/godbc"
-
+	"github.com/lpabon/godbc"
 )
 
 // GeoReplicationCreate creates a geo-rep session for the given volume
