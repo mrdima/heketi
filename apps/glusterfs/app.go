@@ -482,6 +482,23 @@ func (a *App) SetRoutes(router *mux.Router) error {
 			Pattern:     "/blockvolumes",
 			HandlerFunc: a.BlockVolumeList},
 
+		// Geo-replication
+		rest.Route{
+			Name:        "GeoReplicationStatus",
+			Method:      "GET",
+			Pattern:     "/georeplication",
+			HandlerFunc: a.GeoReplicationStatus},
+		rest.Route{
+			Name:        "GeoReplicationVolumeStatus",
+			Method:      "GET",
+			Pattern:     "/volumes/{id:[A-Fa-f0-9]+}/georeplication",
+			HandlerFunc: a.GeoReplicationVolumeStatus},
+		rest.Route{
+			Name:        "GeoReplication",
+			Method:      "POST",
+			Pattern:     "/volumes/{id:[A-Fa-f0-9]+}/georeplication",
+			HandlerFunc: a.GeoReplicationPostHandler},
+
 		// Backup
 		rest.Route{
 			Name:        "Backup",
