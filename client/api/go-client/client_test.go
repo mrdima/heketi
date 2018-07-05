@@ -558,7 +558,13 @@ func TestClientGeoreplication(t *testing.T) {
 	// Create cluster
 	c := NewClient(ts.URL, "admin", TEST_ADMIN_KEY)
 	tests.Assert(t, c != nil)
-	cluster, err := c.ClusterCreate()
+	cluster_req := &api.ClusterCreateRequest{
+		ClusterFlags: api.ClusterFlags{
+			Block: true,
+			File:  true,
+		},
+	}
+	cluster, err := c.ClusterCreate(cluster_req)
 	tests.Assert(t, err == nil)
 
 	// Create node request packet
